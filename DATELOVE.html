@@ -1,0 +1,192 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Date Proposal</title>
+    <style>
+        /* --- CSS Styling --- */
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #fce4ec; /* Lightest pink/rose */
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 90%;
+            transition: transform 0.3s ease-in-out;
+            text-align: left;
+        }
+
+        h1 {
+            color: #c2185b; /* Deep rose */
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .heart {
+            font-size: 3em;
+            color: #e91e63;
+            animation: pulse 1.5s infinite;
+            display: block;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        p.intro {
+            color: #6a6a6a;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ffc1e3; /* Light pink border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #e91e63; /* Main theme color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 30px;
+        }
+
+        .btn-submit:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+        }
+
+        /* Response Styling */
+        #response-area {
+            display: none; /* Hidden until the form is submitted */
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            border-left: 5px solid #e91e63;
+        }
+
+        #response-area h2 {
+            color: #e91e63;
+            text-align: center;
+        }
+
+        #response-area p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <span class="heart">💖</span>
+        <h1>A Special Invitation for You!</h1>
+        
+        <p class="intro">I want to plan the perfect date, and who better to ask for advice than my favorite person? Fill out your wishes below!</p>
+
+        <form id="date-form">
+            
+            <div class="form-group">
+                <label for="date-time">When are you free for a date?</label>
+                <input type="text" id="date-time" name="date-time" placeholder="Example: Next Saturday evening" required>
+            </div>
+
+            <div class="form-group">
+                <label for="food-pref">What kind of food are you craving?</label>
+                <input type="text" id="food-pref" name="food-pref" placeholder="Example: Italian, Sushi, or Burgers" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location-pref">Where would you like to go?</label>
+                <input type="text" id="location-pref" name="location-pref" placeholder="Example: Downtown, a quiet park, or a specific neighborhood" required>
+            </div>
+
+            <div class="form-group">
+                <label for="extra-notes">Any other fun ideas or activities?</label>
+                <textarea id="extra-notes" name="extra-notes" rows="3" placeholder="Example: I'd love to go mini-golfing after dinner!"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                Submit My Perfect Date Plan!
+            </button>
+        </form>
+
+        <div id="response-area">
+            <h2>Thank You, My Love!</h2>
+            <p>Your input is perfect! I will use this information to plan the most wonderful date just for us. Check your messages soon for the final details. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        // --- JavaScript Functionality ---
+        document.getElementById('date-form').addEventListener('submit', function(event) {
+            // 1. Prevent the default form submission (which would reload the page)
+            event.preventDefault();
+
+            // 2. Hide the form and show the response area
+            document.getElementById('date-form').style.display = 'none';
+            document.getElementById('response-area').style.display = 'block';
+
+            // Optional: Log the answers to the console for you to see them (developer tool)
+            const dateTime = document.getElementById('date-time').value;
+            const foodPref = document.getElementById('food-pref').value;
+            const locationPref = document.getElementById('location-pref').value;
+            const extraNotes = document.getElementById('extra-notes').value;
+            
+            console.log("--- Girlfriend's Date Preferences ---");
+            console.log("Time/Date: " + dateTime);
+            console.log("Food: " + foodPref);
+            console.log("Location: " + locationPref);
+            console.log("Notes: " + extraNotes);
+            console.log("-------------------------------------");
+
+            // NOTE FOR YOU: Since this is a simple static HTML/JS page, 
+            // the data is NOT saved anywhere permanent. You'll need to 
+            // look at the Console in the browser's developer tools 
+            // *before* closing the page, or she can just text you the answers!
+        });
+    </script>
+</body>
+</html>
